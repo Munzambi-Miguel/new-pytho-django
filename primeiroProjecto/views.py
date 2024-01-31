@@ -26,5 +26,11 @@ def hello(request): # primeira visão
     return HttpResponse(documento)
 
 
-def segunda_tentativa(request):
-    return HttpResponse('bem vindo a primeira compriensão do django python')
+def segunda_tentativa(request, ano):
+    
+    
+    ano_atual = int(datetime.datetime.now().strftime('%Y'))
+  
+    documento = "<h1> O ano inserigo %s" %(ano_atual - int(ano))
+    
+    return HttpResponse(documento)
