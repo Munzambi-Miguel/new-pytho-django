@@ -22,5 +22,5 @@ from primeiroProjecto.views import segunda_tentativa;
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hello),
-    path('calcular/<int:ano>', segunda_tentativa),
+    path('calcular/<int:ano>/', segunda_tentativa , name='calcular'),
 ]

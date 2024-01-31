@@ -23,12 +23,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-    #  - name: Run Tests
-     #   run: |
-    #      python -m pytest
+      - name: Executando testes automatizados
+        run: |
+          python manage.py test
 
       #- name: Deploy (Exemplo)
       #  if: success()
       #  run: |
       #    echo "Deploying to production..."
-          # Adicione aqui os comandos necessários para implantar sua aplicação
+      # Adicione aqui os comandos necessários para implantar sua aplicação
