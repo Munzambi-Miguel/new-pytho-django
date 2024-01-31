@@ -21,6 +21,9 @@ o seguinte comando:
     py -m pip install django
 
 
+    pip freeze > requirements.txt
+
+
 ````
 
 ````
