@@ -38,3 +38,11 @@ class ArquivoEsternoTests(TestCase):
         
         self.assertEqual(response.status_code, 200)
 
+
+class ArquivoEsternalTests(TestCase):   
+    
+    def test_arquivo_esternal(self):
+    
+        response = self.client.get(reverse('external'))
+        
+        self.assertEqual(response.status_code, 200)
