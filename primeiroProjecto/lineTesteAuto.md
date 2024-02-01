@@ -1,9 +1,11 @@
+````yml
+
 name: Python CI/CD
 
 on:
   push:
     branches:
-      - main # Mude para o nome do seu branch principal
+      - main
 
 jobs:
   build:
@@ -16,7 +18,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8 # Mude para a versão Python que você está usando
+          python-version: 3.8
 
       - name: Install Dependencies
         run: |
@@ -45,9 +47,3 @@ jobs:
       - name: Run Automated Tests
         run: |
           python manage.py test
-
-      #- name: Deploy (Exemplo)
-      #  if: success()
-      #  run: |
-      #    echo "Deploying to production..."
-      # Adicione aqui os comandos necessários para implantar sua aplicação
