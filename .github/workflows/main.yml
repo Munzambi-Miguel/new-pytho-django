@@ -67,7 +67,7 @@ jobs:
 
       - name: Deploy
         run: |
-          python manage.py runserver
+          #python manage.py runserver
           
           echo "Deploying to production..."
           # Adicione aqui os comandos necessários para implantar sua aplicação
