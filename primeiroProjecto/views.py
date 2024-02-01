@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 import datetime
 
+from django.template import Template, Context
+
 def hello(request): # primeira visão
     
     data_hota_atual = datetime.datetime.now()
@@ -26,5 +28,27 @@ def hello(request): # primeira visão
     return HttpResponse(documento)
 
 
-def segunda_tentativa(request):
-    return HttpResponse('bem vindo a primeira compriensão do django python')
+def segunda_tentativa(request, ano):
+    
+    
+    ano_atual = int(datetime.datetime.now().strftime('%Y'))
+  
+    documento = "<h1> O ano inserigo %s" %(ano_atual - int(ano))
+    
+    return HttpResponse(documento)
+
+
+def documento_esterno(request):
+    
+        author = "Munzambi Miguel"
+ 
+        doc_external = open("./primeiroProjecto/template/index.html");
+        plt = Template(doc_external.read()) 
+        
+        doc_external.close();
+        
+        ctx = Context({"nome_pessoa":author})
+        
+        documento = plt.render(ctx)
+        
+        return HttpResponse(documento)
