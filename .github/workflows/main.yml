@@ -69,15 +69,14 @@ jobs:
         run: |
           python manage.py test
 
-  Apresentacao:
-    needs:
-      - criar-maquina
+  Criando-Master:
+    needs: teste-projecto
 
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy
-        run: echo "Deploying to production..."
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
       - name: Criar Branch Master se não existir
         run: |
