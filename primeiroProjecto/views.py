@@ -40,13 +40,14 @@ def segunda_tentativa(request, ano):
 
 def documento_esterno(request):
     
+        author = "Munzambi Miguel"
  
-        doc_external = open("./primeiroProjecto/template/primary.html");
+        doc_external = open("./primeiroProjecto/template/index.html");
         plt = Template(doc_external.read()) 
         
         doc_external.close();
         
-        ctx = Context()
+        ctx = Context({"nome_pessoa":author})
         
         documento = plt.render(ctx)
         
