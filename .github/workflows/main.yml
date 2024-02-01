@@ -69,20 +69,15 @@ jobs:
         run: |
           python manage.py test
 
-  Criando-Master:
-    needs: teste-projecto
+  Apresentacao:
+    needs:
+      - criar-maquina
 
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - name: Deploy
+        run: echo "Deploying to production..."
 
-      - name: Criar Branch Master se não existir
-        run: |
-          git branch -a | grep "remotes/origin/master"
-          if [ $? -eq 1 ]; then
-            git checkout -b master
-            git push origin master
-          fi
+        
         # Adicione aqui os comandos necessários para implantar sua aplicação
