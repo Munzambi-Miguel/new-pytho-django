@@ -2,6 +2,9 @@ from django.http import HttpResponse
 import datetime
 
 from django.template import Template, Context
+from django.template import loader
+from django.shortcuts import render
+
 
 def hello(request): # primeira visão
     
@@ -42,13 +45,14 @@ def documento_esterno(request):
     
         author = "Munzambi Miguel"
  
-        doc_external = open("./primeiroProjecto/template/index.html");
-        plt = Template(doc_external.read()) 
+        # doc_external = open("./primeiroProjecto/template/index.html");
+        doc_external = loader.get_template('index.html');
+        # plt = Template(doc_external.read()) 
         
-        doc_external.close();
+        # doc_external.close();
         
-        ctx = Context({"nome_pessoa":author})
+        # ctx = Context({"nome_pessoa":author})
         
-        documento = plt.render(ctx)
+        # documento = plt.render(ctx)
         
-        return HttpResponse(documento)
+        return render(request, 'index.html', {"nome_pessoa":author})
