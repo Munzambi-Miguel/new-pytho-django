@@ -26,7 +26,6 @@ jobs:
 
   build:
     needs: common
-
     runs-on: ubuntu-latest
 
     steps:
@@ -35,10 +34,12 @@ jobs:
 
   test:
     needs: common
-
     runs-on: ubuntu-latest
 
     steps:
+      - name:
+        run: echo "Rodando a maquina de teste"
+
       - name: Run Automated Tests
         run: |
           python manage.py test
