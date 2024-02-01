@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  maquina:
+  criar-maquina:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,30 +23,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-  testando:
-    needs: maquina
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Run Automated Tests
-        run: |
-          python manage.py test
-
-  producao:
-    needs: maquina
+  teste-projecto:
+    needs: criar-maquina
     runs-on: ubuntu-latest
 
     steps:
@@ -67,10 +45,33 @@ jobs:
         run: |
           python manage.py test
 
-  deploy:
+  Producao:
     needs:
-      - maquina
-      - testando
+      - criar-maquina
+      - teste-projecto
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Automated Tests
+        run: |
+          python manage.py test
+
+  Apresentacao:
+    needs:
+      - criar-maquina
 
     runs-on: ubuntu-latest
 
