@@ -25,7 +25,7 @@ class MinhaAppsSegundoTests(TestCase):
         
         ano_atual = int(datetime.datetime.now().strftime('%Y'))        
                 
-        documento = "<h1> O ano inserigo %s" %(ano_atual - 1992)                
+        documento = "<h1> O ano inserigo %s" %(ano_atual - 2992)                
         
         self.assertContains(response, documento)
         
