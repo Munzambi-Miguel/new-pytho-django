@@ -28,6 +28,13 @@ class MinhaAppsSegundoTests(TestCase):
         documento = "<h1> O ano inserigo %s" %(ano_atual - 1992)                
         
         self.assertContains(response, documento)
+        
+        
+class ArquivoEsternoTests(TestCase):   
     
-
+    def test_arquivo_esterno(self):
+    
+        response = self.client.get(reverse('external'))
+        
+        self.assertEqual(response.status_code, 200)
 

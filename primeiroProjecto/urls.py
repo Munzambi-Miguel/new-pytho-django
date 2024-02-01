@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from primeiroProjecto.views import hello;
-from primeiroProjecto.views import segunda_tentativa;
+from primeiroProjecto.views import segunda_tentativa, documento_esterno;
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', hello),
     path('calcular/<int:ano>/', segunda_tentativa , name='calcular'),
+    path('external/', documento_esterno,  name='external'),
 ]
