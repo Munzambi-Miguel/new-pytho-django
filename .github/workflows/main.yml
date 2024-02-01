@@ -71,7 +71,7 @@ jobs:
 
   Apresentacao:
     needs:
-      - criar-maquina
+      - teste-projecto
 
     runs-on: ubuntu-latest
 
@@ -79,5 +79,4 @@ jobs:
       - name: Deploy
         run: echo "Deploying to production..."
 
-        
         # Adicione aqui os comandos necessários para implantar sua aplicação
