@@ -78,4 +78,12 @@ jobs:
     steps:
       - name: Deploy
         run: echo "Deploying to production..."
+
+      - name: Criar Branch Master se não existir
+        run: |
+          git branch -a | grep "remotes/origin/master"
+          if [ $? -eq 1 ]; then
+            git checkout -b master
+            git push origin master
+          fi
         # Adicione aqui os comandos necessários para implantar sua aplicação
