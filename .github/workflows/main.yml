@@ -80,8 +80,8 @@ jobs:
 
       - name: Criar Branch Master se não existir
         run: |
-          git branch -a | grep "remotes/origin/master"
-          if [ $? -eq 1 ]; then
+          git ls-remote --heads origin master
+          if [ $? -eq 0 ]; then
             git checkout -b master
             git push origin master
           else
@@ -89,4 +89,5 @@ jobs:
             git pull origin main
             git push origin master
           fi
+
         # Adicione aqui os comandos necessários para implantar sua aplicação
