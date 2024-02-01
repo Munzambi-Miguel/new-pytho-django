@@ -55,7 +55,9 @@ jobs:
           python manage.py test
 
   deploy:
-    needs: build
+    needs:
+      - test
+      - build
 
     runs-on: ubuntu-latest
 
